@@ -9,14 +9,14 @@ import mlflow
 import mlflow.pytorch
 from tqdm import tqdm
 
-from dataset import ChestXrayDataset
-from transforms import get_train_transforms, get_test_transforms
+from trainer.dataset import ChestXrayDataset
+from trainer.transforms import get_train_transforms, get_test_transforms
 import pandas as pd
 import numpy as np
 
 
 class PneumoniaTrainer:
-    def __init__(self, model, data_map_path, image_size=(150, 150), batch_size=32, lr=1e-4, experiment_name="Pneumonia Detection"):
+    def __init__(self, model, data_map_path, image_size=(224, 224), batch_size=32, lr=1e-4, experiment_name="Pneumonia Detection"):
         self.model = model
         self.data_map_path = data_map_path
         self.image_size = image_size
@@ -25,8 +25,8 @@ class PneumoniaTrainer:
         self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
         self.experiment_name = experiment_name
 
-        self.train_transform = get_train_transform(self.image_size)
-        self.test_transform = get_test_transform(self.image_size)
+        self.train_transform = get_train_transforms(self.image_size)
+        self.test_transform = get_test_transforms(self.image_size)
 
         self.train_loader = None
         self.val_loader = None
@@ -83,9 +83,12 @@ class PneumoniaTrainer:
         auc = roc_auc_score(all_labels, all_probs)
         return loss, acc, auc
 
-    def train(self, epochs=5):
-        mlflow.set_experiment("http://127.0.0.1:8080")
+    def train(self, epochs=2):
+        mlflow.set_experiment(self.experiment_name)
+        if mlflow.active_run():
+            mlflow.end_run()
         with mlflow.start_run():
+            
             model = self.model.to(self.device)
             criterion = nn.BCELoss(weight=self.class_weights[1])
             optimizer = optim.Adam(model.parameters(), lr=self.lr)

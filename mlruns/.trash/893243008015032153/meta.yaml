@@ -1,0 +1,7 @@
+artifact_location: file:///E:/projects/Chest%20X-Ray/mlruns/893243008015032153
+creation_time: 1747856830115
+experiment_id: '893243008015032153'
+last_update_time: 1747857425658
+lifecycle_stage: deleted
+name: chest_xray_use_resnet18
+tags: {}

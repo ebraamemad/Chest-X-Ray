@@ -1,0 +1,16 @@
+artifact_uri: file:///E:/projects/Chest%20X-Ray/mlruns/893243008015032153/41c452f5a1504d4990fa9ba98ac0a754/artifacts
+deleted_time: 1747857425658
+end_time: 1747857089610
+entry_point_name: ''
+experiment_id: '893243008015032153'
+lifecycle_stage: deleted
+run_id: 41c452f5a1504d4990fa9ba98ac0a754
+run_name: casual-ant-428
+run_uuid: 41c452f5a1504d4990fa9ba98ac0a754
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747857089481
+status: 4
+tags: []
+user_id: H

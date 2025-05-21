@@ -1,0 +1,16 @@
+artifact_uri: file:///E:/projects/Chest%20X-Ray/mlruns/893243008015032153/21a430cadc72402092c0501a2af7ba92/artifacts
+deleted_time: 1747857425658
+end_time: 1747856831410
+entry_point_name: ''
+experiment_id: '893243008015032153'
+lifecycle_stage: deleted
+run_id: 21a430cadc72402092c0501a2af7ba92
+run_name: orderly-shrimp-9
+run_uuid: 21a430cadc72402092c0501a2af7ba92
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747856831203
+status: 4
+tags: []
+user_id: H
