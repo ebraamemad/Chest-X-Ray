@@ -10,6 +10,22 @@ requires-python = ">=3.12"
 readme = "README.md"
 license = {text = "MIT"}
 
+[project.optional-dependencies]
+production = [
+    "fastapi>=0.115.12",
+]
+dockarpreexisit = [
+    "torch>=2.7.0",
+    "torchvision>=0.22.0",
+]
+development = [
+    "pandas>=2.2.3",
+    "scikit-learn>=1.6.1",
+    "tqdm>=4.67.1",
+]
+developmentml = [
+    "mlflow>=2.22.0",
+]
 [build-system]
 requires = ["pdm-backend"]
 build-backend = "pdm.backend"
@@ -18,11 +34,3 @@ build-backend = "pdm.backend"
 [tool.pdm]
 distribution = true
 
-[dependency-groups]
-dockarpreexisit = [
-    "torch>=2.7.0",
-    "torchvision>=0.22.0",
-]
-test = [
-    "pytest>=8.3.5",
-]
